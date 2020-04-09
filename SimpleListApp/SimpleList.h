@@ -18,10 +18,16 @@ public:
 	virtual ~SimpleList();
 
 	void QueueItem(int);
+	void QueueItem(int, Priority);
 	int DequeueItem();
 	void Push(int);
 	int Pop();
 	void DisplayList();
 
+	// Copy Constructor
+	SimpleList(const SimpleList& old);
+
+	// Assignment Operator
+	SimpleList& operator=(const SimpleList& old);
 };
 

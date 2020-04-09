@@ -18,7 +18,7 @@ void SimpleList::QueueItem(int newValue)
 	temp->value = newValue;
 	temp->next = NULL;
 
-	if (head == NULL)
+	if (head == NULL) // Empty List
 	{
 		head = tail = temp;
 	}
@@ -32,10 +32,17 @@ void SimpleList::QueueItem(int newValue)
 
 int SimpleList::DequeueItem()
 {
-	// Is empty 
+	try {
+		// Is empty 
 		if (head == NULL)
-			return -1;
-
+		{
+			throw exception("Exception thrown: head = NULL");
+		}
+	}
+	catch (exception & ex) 
+	{
+		cout << "Error found: " << ex.what() << endl;
+	}
 		Node* temp = head;
 		head = temp->next;
 
